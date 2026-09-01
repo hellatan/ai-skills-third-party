@@ -1,0 +1,1 @@
+../../vendor/vibe-code-security-audit/skill.md
