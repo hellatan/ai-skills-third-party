@@ -1,11 +1,14 @@
-# claude-skills-third-party
+# ai-skills-third-party
 
 Third-party Claude Code skills — other people's work, vendored and symlinked
-into `~/.claude/skills/`. The counterpart to `~/projects/claude-skills`, which
+into `~/.claude/skills/`. The counterpart to `~/projects/ai-skills`, which
 holds skills written here.
 
-Not a git repo (deliberately): `vendor/` contains upstream clones that manage
-their own history.
+A **private** git repo (`hellatan/ai-skills-third-party`) so cloud instances can
+clone it and run `install.sh` — local symlinks alone can't be fetched. Private
+because it redistributes other people's skills (some from a private upstream,
+licenses unstated). Upstream sources are committed as git submodules where they
+have their own repo, and as plain files otherwise — see [SOURCES.md](SOURCES.md).
 
 ## Layout
 
@@ -23,20 +26,31 @@ Claude Code can load directly.
 
 ## Install
 
+On a fresh machine or cloud instance, clone **with submodules**, then install:
+
+```bash
+git clone --recurse-submodules https://github.com/hellatan/ai-skills-third-party.git
+cd ai-skills-third-party && ./scripts/install.sh
+```
+
+Already cloned without `--recurse-submodules`? Run `git submodule update --init`
+first. In an existing checkout, just:
+
 ```bash
 ./scripts/install.sh
 ```
 
 Symlinks every `skills/*` entry to `~/.claude/skills/<name>`, and prunes links
 into this collection that no longer resolve. Links owned by anything else
-(`claude-skills`, `pinky-log`, `~/.agents/skills`) are reported, never touched.
+(`ai-skills`, `pinky-log`, `~/.agents/skills`) are reported, never touched.
 
-Unlike `claude-skills`, there are no git hooks to auto-resync — **re-run
+Unlike `ai-skills`, there are no git hooks to auto-resync — **re-run
 `./scripts/install.sh` after adding or updating a `vendor/` source.**
 
 ## Adding a skill
 
-1. Put the source in `vendor/` — `git clone`, or extract the release/zip.
+1. Put the source in `vendor/` — `git submodule add <url> vendor/<source>` when it
+   has its own repo (preferred), otherwise extract the release/zip as plain files.
 2. Symlink it into `skills/` under the name Claude Code should see:
    `ln -s ../vendor/<source>/path/to/<skill> skills/<skill>`
    (if upstream's entry file isn't `SKILL.md`, make `skills/<skill>/` a real
