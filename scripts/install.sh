@@ -2,11 +2,10 @@
 # Symlinks each third-party skill into ~/.claude/skills/<skill-name> and prunes
 # links to skills this collection no longer carries.
 #
-# Modeled on ~/projects/claude-skills/scripts/install.sh, with two differences:
+# Modeled on ~/projects/ai-skills/scripts/install.sh, with two differences:
 # this collection vendors OTHER people's skills (skills/ holds symlinks into
-# vendor/, which is the upstream checkout or extract), and it isn't a git clone,
-# so there are no hooks to auto-resync — re-run this script after updating a
-# vendor/ source.
+# vendor/, which is the upstream submodule or extract), and it has no git hooks
+# to auto-resync — re-run this script after updating a vendor/ source.
 #
 # Run from anywhere: ./scripts/install.sh [--quiet]
 #
@@ -77,7 +76,7 @@ done
 
 # --- Prune --------------------------------------------------------------------
 # Only dangling links pointing into THIS collection are ours to remove. Links to
-# other repos (claude-skills, pinky-log, ~/.agents) are reported, never touched.
+# other repos (ai-skills, pinky-log, ~/.agents) are reported, never touched.
 for link in "$TARGET_DIR"/*; do
   [[ -L "$link" ]] || continue
   [[ -e "$link" ]] && continue

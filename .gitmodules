@@ -4,3 +4,6 @@
 [submodule "vendor/vibe-code-security-audit"]
 	path = vendor/vibe-code-security-audit
 	url = https://github.com/mrhakimov/vibe-code-security-audit.git
+[submodule "vendor/bradfrost-skills"]
+	path = vendor/bradfrost-skills
+	url = https://github.com/bradfrost/skills.git

@@ -5,22 +5,40 @@ local changes belong upstream or in a wrapper under `skills/`.
 
 | Skill(s) | Upstream | Pinned at | Update by | License |
 |---|---|---|---|---|
-| `vibe-code-security-audit` | `git@github.com:mrhakimov/vibe-code-security-audit.git` | `c99d6f7` (2026-04-03) | `git -C vendor/vibe-code-security-audit pull` | not stated upstream |
-| `limits-*` (4 skills, `skills/mental-health/`) | `bradfrost/skills` (**private** repo) | extract refreshed 2026-08-28; ⚠️ `bradfrost-skills-main.zip` is the OLDER `8ee30fb` and no longer matches | re-download and re-extract over `vendor/bradfrost-skills/`, or clone if gh auth reaches it | not stated upstream |
-| `find-skills` | unknown — references https://skills.sh/, likely `vercel-labs/agent-skills` | copied into `~/.claude/skills` 2026-07-23 | none (re-fetch from skills.sh) | not stated |
-| `i-have-adhd` | unknown — frontmatter carries `metadata.hermes` tags | copied into `~/.claude/skills` 2026-07-23 | none | MIT (declared in frontmatter) |
+| `vibe-code-security-audit` | `github.com/mrhakimov/vibe-code-security-audit` (submodule, https) | `c99d6f7` (2026-04-03) | `git -C vendor/vibe-code-security-audit pull`, then `git add` the gitlink | not stated upstream |
+| `limits-*` (5 skills, `skills/mental-health/`) | `github.com/bradfrost/skills` (**public** as of 2026-09-01; submodule) | `f05e016` | `git -C vendor/bradfrost-skills pull`, then `git add` the gitlink | not stated upstream |
+| `find-skills` | unknown — references https://skills.sh/, likely `vercel-labs/agent-skills` | copied into `~/.claude/skills` 2026-07-23 | none (re-fetch from skills.sh) — still plain files | not stated |
+| `i-have-adhd` | `github.com/hellatan/i-have-adhd` (submodule, https) | `cbe69fb` | `git -C vendor/i-have-adhd pull`, then `git add` the gitlink | MIT (declared in frontmatter) |
 
 ## Git structure (private repo `hellatan/ai-skills-third-party`)
 
 This collection is now a **private** git repo so cloud instances can clone it and
-run `scripts/install.sh`. Vendored sources are committed two ways:
+run `scripts/install.sh` — local symlinks alone can't be fetched. Vendored
+sources are committed two ways:
 
 - **Submodules** (their own upstream repos, https URLs so cloud clones need no SSH
-  key): `vendor/i-have-adhd`, `vendor/vibe-code-security-audit`. Clone with
-  `git clone --recurse-submodules`, or `git submodule update --init` after.
-- **Plain files** (no standalone repo yet): `vendor/bradfrost-skills` (subpath of
-  a *private* repo), `vendor/find-skills` (no known repo). Convert to submodules
-  if/when they become standalone reachable repos — brad's is expected to.
+  key): `vendor/bradfrost-skills` (→ `bradfrost/skills`, converted 2026-09-01 once
+  it went public), `vendor/i-have-adhd`, `vendor/vibe-code-security-audit`. Clone
+  with `git clone --recurse-submodules`, or `git submodule update --init` after.
+- **Plain files** (no standalone repo yet): `vendor/find-skills` (no known repo).
+  Convert to a submodule if/when it becomes a standalone reachable repo.
+
+Converting bradfrost to a submodule reverted `limits-setup`'s `description`
+frontmatter to upstream (it had a local edit — "START HERE…" vs upstream's
+`/setup-brad-frost-skills` reference); body identical, all trigger phrases intact.
+
+### Git workflow: main-only, PRs against `main` (Dale's call, 2026-09-01)
+
+> Future-you asking "why the fuck is it this way?": **you chose this.** Here's why.
+
+`main` is the only long-lived branch — no `develop`, no gitflow. This is a
+personal vendoring collection, not an app, so promotion PRs and a staging branch
+buy nothing. But direct-push-to-`main` is also **off** (this repo isn't in
+`block-push-to-protected.py`'s 3-repo allowlist, and we chose not to add it).
+So every change lands via a **feature branch → PR against `main`**, edited in a
+worktree (the primary-checkout edit hook enforces the worktree). You picked PR
+review over direct commits here; that's the whole reason it's not just
+`git push origin main`.
 
 ## Notes
 
