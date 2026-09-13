@@ -27,6 +27,10 @@ Converting bradfrost to a submodule reverted `limits-setup`'s `description`
 frontmatter to upstream (it had a local edit — "START HERE…" vs upstream's
 `/setup-brad-frost-skills` reference); body identical, all trigger phrases intact.
 
+Root contributor guidance lives in `AGENTS.md`; `CLAUDE.md` is only a
+compatibility adapter. Keep durable repository rules there rather than in a
+vendor-specific entry point.
+
 ### Git workflow: main-only, PRs against `main` (Dale's call, 2026-09-01)
 
 > Future-you asking "why the fuck is it this way?": **you chose this.** Here's why.
