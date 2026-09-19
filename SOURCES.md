@@ -8,7 +8,7 @@ local changes belong upstream or in a wrapper under `skills/`.
 | `vibe-code-security-audit` | `github.com/mrhakimov/vibe-code-security-audit` (submodule, https) | `c99d6f7` (2026-04-03) | `git -C vendor/vibe-code-security-audit pull`, then `git add` the gitlink | not stated upstream |
 | `limits-*` (5 skills, `skills/mental-health/`) | `github.com/bradfrost/skills` (**public** as of 2026-09-01; submodule) | `be273c2` (2026-09-10) | `git -C vendor/bradfrost-skills pull`, then `git add` the gitlink | not stated upstream |
 | `find-skills` | unknown — references https://skills.sh/, likely `vercel-labs/agent-skills` | copied into `~/.claude/skills` 2026-07-23 | none (re-fetch from skills.sh) — still plain files | not stated |
-| `i-have-adhd` | `github.com/hellatan/i-have-adhd` (submodule, https) | `cbe69fb` | `git -C vendor/i-have-adhd pull`, then `git add` the gitlink | MIT (declared in frontmatter) |
+| `i-have-adhd` | `github.com/ayghri/i-have-adhd` (submodule, https; was a zero-commit fork under `hellatan` until 2026-09-19) | `cbe69fb` | `git submodule sync -- vendor/i-have-adhd` once in an existing checkout, then `git -C vendor/i-have-adhd pull` and `git add` the gitlink | MIT (declared in frontmatter) |
 
 ## Git structure (private repo `hellatan/ai-skills-third-party`)
 
