@@ -42,7 +42,7 @@ first. In an existing checkout, just:
 
 Symlinks every `skills/*` entry to `~/.claude/skills/<name>`, and prunes links
 into this collection that no longer resolve. Links owned by anything else
-(`ai-skills`, `pinky-log`, `~/.agents/skills`) are reported, never touched.
+(`ai-skills`, other collections, `~/.agents/skills`) are reported, never touched.
 
 That default preserves the historical Claude-only install. Select
 agent-neutral discovery or both roots explicitly when needed:
