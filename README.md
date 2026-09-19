@@ -2,13 +2,14 @@
 
 Third-party agent skills — other people's work, vendored and symlinked into
 Claude Code and/or agent-neutral discovery roots. The counterpart to
-`~/projects/ai-skills`, which holds skills written here.
+`hellatan/ai-skills`, which holds skills written here.
 
-A **private** git repo (`hellatan/ai-skills-third-party`) so cloud instances can
-clone it and run `install.sh` — local symlinks alone can't be fetched. Private
-because it redistributes other people's skills (some from a private upstream,
-licenses unstated). Upstream sources are committed as git submodules where they
-have their own repo, and as plain files otherwise — see [SOURCES.md](SOURCES.md).
+A **public** git repo (`hellatan/ai-skills-third-party`) so cloud instances can
+clone it unattended and run `install.sh` — local symlinks alone can't be fetched.
+It was private until 2026-09-19; every vendored upstream is public now. Two
+sources still state no license (see the table in [SOURCES.md](SOURCES.md)), so
+this repo redistributes them without one. Upstream sources are committed as git
+submodules where they have their own repo, and as plain files otherwise.
 
 ## Layout
 
