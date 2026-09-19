@@ -1,6 +1,6 @@
 # ai-skills-third-party contributor instructions
 
-This private repository vendors third-party agent skills and exposes the selected
+This public repository vendors third-party agent skills and exposes the selected
 ones through normalized entries under `skills/`. It is the third-party companion
 to `ai-skills`, which holds locally authored skills.
 

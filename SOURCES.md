@@ -10,11 +10,11 @@ local changes belong upstream or in a wrapper under `skills/`.
 | `find-skills` | unknown — references https://skills.sh/, likely `vercel-labs/agent-skills` | copied into `~/.claude/skills` 2026-07-23 | none (re-fetch from skills.sh) — still plain files | not stated |
 | `i-have-adhd` | `github.com/ayghri/i-have-adhd` (submodule, https; was a zero-commit fork under `hellatan` until 2026-09-19) | `cbe69fb` | `git submodule sync -- vendor/i-have-adhd` once in an existing checkout, then `git -C vendor/i-have-adhd pull` and `git add` the gitlink | MIT (declared in frontmatter) |
 
-## Git structure (private repo `hellatan/ai-skills-third-party`)
+## Git structure (public repo `hellatan/ai-skills-third-party`)
 
-This collection is now a **private** git repo so cloud instances can clone it and
-run `scripts/install.sh` — local symlinks alone can't be fetched. Vendored
-sources are committed two ways:
+This collection is a **public** git repo (private until 2026-09-19) so cloud
+instances can clone it unattended and run `scripts/install.sh` — local symlinks
+alone can't be fetched. Vendored sources are committed two ways:
 
 - **Submodules** (their own upstream repos, https URLs so cloud clones need no SSH
   key): `vendor/bradfrost-skills` (→ `bradfrost/skills`, converted 2026-09-01 once
