@@ -6,13 +6,14 @@ to `ai-skills`, which holds locally authored skills.
 
 ## Before working
 
-- Cloud sessions load the shared workflow contract before other work: attach
-  `<CONTRACT_REPOS>` yourself (in Claude Code cloud, with `add_repo`), one at
-  a time since concurrent clones fail, then follow the contract repository's
-  own cloud setup instructions before starting the task. If an attach is
-  refused, say which and stop. Local sessions attach nothing and use the
-  contract installed on the machine; if it is not installed there, say so
-  before starting.
+- Cloud sessions load the shared workflow contract before other work: attach the
+  contract repositories named by whoever started the session, doing it yourself
+  (in Claude Code cloud, with `add_repo`) and one at a time since concurrent
+  clones fail, then follow the contract repository's own cloud setup
+  instructions before starting the task. This public repository does not list
+  them; if none were named, say so and stop. If an attach is refused, say which
+  and stop. Local sessions attach nothing and use the contract installed on the
+  machine; if it is not installed there, say so before starting.
 - Read [SOURCES.md](SOURCES.md) before changing vendored sources, skill links,
   or install behavior. It is the provenance and repository-workflow authority.
 
