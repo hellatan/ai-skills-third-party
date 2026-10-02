@@ -4,8 +4,18 @@ This public repository vendors third-party agent skills and exposes the selected
 ones through normalized entries under `skills/`. It is the third-party companion
 to `ai-skills`, which holds locally authored skills.
 
-Read [SOURCES.md](SOURCES.md) before changing vendored sources, skill links, or
-install behavior. It is the provenance and repository-workflow authority.
+## Before working
+
+- Cloud sessions load the shared workflow contract before other work: attach the
+  contract repositories named by whoever started the session, doing it yourself
+  (in Claude Code cloud, with `add_repo`) and one at a time since concurrent
+  clones fail, then follow the contract repository's own cloud setup
+  instructions before starting the task. This public repository does not list
+  them; if none were named, say so and stop. If an attach is refused, say which
+  and stop. Local sessions attach nothing and use the contract installed on the
+  machine; if it is not installed there, say so before starting.
+- Read [SOURCES.md](SOURCES.md) before changing vendored sources, skill links,
+  or install behavior. It is the provenance and repository-workflow authority.
 
 ## Lifecycle
 
